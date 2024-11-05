@@ -1,6 +1,6 @@
 import puppeteer from "./mod.ts";
 import { PUPPETEER_REVISIONS } from "./vendor/puppeteer-core/puppeteer/revisions.js";
-import ProgressBar from "https://deno.land/x/progress@v1.1.4/mod.ts";
+import ProgressBar from "https://deno.land/x/progress@v1.5.1/mod.ts";
 
 let product = Deno.env.get("PUPPETEER_PRODUCT");
 if (product != "chrome" && product != "firefox") {
