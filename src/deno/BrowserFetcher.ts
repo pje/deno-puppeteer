@@ -27,6 +27,7 @@ import {
 } from "../../vendor/puppeteer-core/vendor/std.ts";
 import { readZip } from "../../vendor/puppeteer-core/vendor/zip/mod.ts";
 import { cachedir } from "../../vendor/puppeteer-core/vendor/cache.ts";
+import { writeAll } from "jsr:@std/io/write-all";
 
 const debugFetcher = debug(`puppeteer:fetcher`);
 
@@ -452,7 +453,7 @@ async function downloadFile(
   for await (const chunk of response.body!) {
     downloadedBytes += chunk.length;
     progressCallback?.(downloadedBytes, totalBytes);
-    await Deno.writeAll(file, chunk);
+    await writeAll(file, chunk);
   }
 }
 
